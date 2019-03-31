@@ -335,6 +335,11 @@ img {
     margin-right: 45px;;
 }
 
+.habilidades .card img {
+    width: 100px;
+    margin: 0 auto;
+}
+
 .habilidades .card h3 {
     font-size: 1.5em;
     font-weight: normal;
