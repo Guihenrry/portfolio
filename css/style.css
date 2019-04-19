@@ -557,4 +557,17 @@ img {
     font-size: 0.875em;
 }
 
+/* js animar scroll */
+
+.js .js-animar {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+    transition: .3s;
+}
+
+.js .js-animar.ativo {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
 
