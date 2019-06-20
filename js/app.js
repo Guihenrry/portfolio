@@ -66,7 +66,7 @@ function initScrollSuave() {
 
 	function scrollToIdOnclick(event) {
 			event.preventDefault(); 
-			const to = getScrollTopByHref(event.target); 
+			const to = getScrollTopByHref(event.target) - 80; 
 			scrollToPosition(to);
 	}
 
@@ -128,3 +128,29 @@ function initAnimarOnScrol() {
 
 initAnimarOnScrol();
 
+function initHeadeFixed() {
+	const header = document.querySelector('.header');
+	window.addEventListener('scroll', fixaHeader);
+	function fixaHeader(event) {
+		const scroll = document.documentElement.scrollTop;
+		if (scroll > 200) {
+			header.classList.add('fixed')
+		}  else {
+			header.classList.remove('fixed')
+		}
+	}
+}
+initHeadeFixed();
+
+function initMenuMobile() {
+	const btnMenu = document.querySelector('.btn-menu');
+	const menu = document.querySelector('.menu');
+	console.log(menu);
+	btnMenu.addEventListener('click', handleClick);
+
+	function handleClick(event) {
+		btnMenu.classList.toggle('active');
+		menu.classList.toggle('active');
+	}
+}
+initMenuMobile();
