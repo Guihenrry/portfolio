@@ -132,12 +132,13 @@ function initHeadeFixed() {
 	const header = document.querySelector('.header');
 	window.addEventListener('scroll', fixaHeader);
 	function fixaHeader(event) {
-		const scroll = document.documentElement.scrollTop;
-		if (scroll > 200) {
-			header.classList.add('fixed')
-		}  else {
-			header.classList.remove('fixed')
-		}
+		const sobre = document.getElementById('sobre');
+		console.log(sobre.getBoundingClientRect().top);
+		if (sobre.getBoundingClientRect().top > 0) {
+			header.classList.remove('fixed');
+		} else {
+			header.classList.add('fixed');
+		}   
 	}
 }
 initHeadeFixed();
@@ -145,7 +146,6 @@ initHeadeFixed();
 function initMenuMobile() {
 	const btnMenu = document.querySelector('.btn-menu');
 	const menu = document.querySelector('.menu');
-	console.log(menu);
 	btnMenu.addEventListener('click', handleClick);
 
 	function handleClick(event) {
