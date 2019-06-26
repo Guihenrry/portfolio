@@ -119,12 +119,11 @@ img {
     background: #181F39;  
     border-bottom: 5px solid #7C8192;
     z-index: 1000;
-    animation: show-down .2s forwards;
+    animation: show-down .5s forwards;
 }
 
 @keyframes show-down {
     from {
-        opacity: .5;
         transform: translate3d(0 , -30px, 0);
     }
     to {

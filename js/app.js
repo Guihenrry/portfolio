@@ -133,8 +133,7 @@ function initHeadeFixed() {
 	window.addEventListener('scroll', fixaHeader);
 	function fixaHeader(event) {
 		const sobre = document.getElementById('sobre');
-		console.log(sobre.getBoundingClientRect().top);
-		if (sobre.getBoundingClientRect().top > 0) {
+		if (sobre.getBoundingClientRect().top > 90) {
 			header.classList.remove('fixed');
 		} else {
 			header.classList.add('fixed');
@@ -146,7 +145,11 @@ initHeadeFixed();
 function initMenuMobile() {
 	const btnMenu = document.querySelector('.btn-menu');
 	const menu = document.querySelector('.menu');
-	btnMenu.addEventListener('click', handleClick);
+	const events = ['click' , 'touchstart'];
+	events.forEach(event => {
+		console.log(event);
+		btnMenu.addEventListener(event, handleClick);
+	});
 
 	function handleClick(event) {
 		btnMenu.classList.toggle('active');
