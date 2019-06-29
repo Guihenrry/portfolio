@@ -57,6 +57,7 @@ initFormulario();
 function initScrollSuave() {
 	const menuitems = document.querySelectorAll('.menu a[href^="#"]');
 	const btnsaibamais = document.querySelector('.intro-text a[href^="#"]');
+	
 
 	menuitems.forEach(item => {
 			item.addEventListener('click', scrollToIdOnclick);
@@ -67,7 +68,7 @@ function initScrollSuave() {
 	function scrollToIdOnclick(event) {
 			event.preventDefault(); 
 			const to = getScrollTopByHref(event.target) - 80; 
-			scrollToPosition(to);
+			scrollToPosition(to);	
 	}
 
 	function getScrollTopByHref(element) {
@@ -145,11 +146,8 @@ initHeadeFixed();
 function initMenuMobile() {
 	const btnMenu = document.querySelector('.btn-menu');
 	const menu = document.querySelector('.menu');
-	const events = ['click' , 'touchstart'];
-	events.forEach(event => {
-		console.log(event);
-		btnMenu.addEventListener(event, handleClick);
-	});
+
+	btnMenu.addEventListener('click', handleClick);
 
 	function handleClick(event) {
 		btnMenu.classList.toggle('active');
@@ -157,3 +155,17 @@ function initMenuMobile() {
 	}
 }
 initMenuMobile();
+
+function initHideMenuOnScroll() {
+	const btnMenu = document.querySelector('.btn-menu');
+	const menu = document.querySelector('.menu');
+	window.addEventListener('scroll', hideMenu);
+	
+	function hideMenu() {
+		btnMenu.classList.remove('active');
+		menu.classList.remove('active');
+	}
+
+}
+
+initHideMenuOnScroll();
