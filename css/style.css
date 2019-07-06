@@ -4,8 +4,8 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
     color: #181F39;
+    -webkit-font-smoothing: antialiased !important;
 }
 
 p, h1, h2, h3, h4, ul, li, body {
@@ -109,14 +109,14 @@ img {
 /* Header -menu */
 .header {
     width: 100%;
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     padding: 30px ;
 }
 
 .header.fixed {
     position: fixed;
-    background: #181F39;  
+    background: #04060D;  
     border-bottom: 5px solid #7C8192;
     z-index: 1000;
     animation: show-down .5s forwards;
@@ -134,11 +134,12 @@ img {
 }
 
 .logo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
     color: #FFF;
     white-space: nowrap;
     text-transform: uppercase;
     font-size: 1.125rem;
-    font-weight: bold;
 }
 
 .logo::before {
@@ -195,23 +196,51 @@ img {
 /* menu */
 .menu ul{
     display: flex;
+    float: right;
 }
 
 .menu ul li a{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1,125em;
     padding: 10px;
     color: #FFF;
-    text-transform: uppercase;
-    font-weight: bold;
 }
 
+.menu ul li a.servico::after{
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 11px;
+    background: url('../img/seta-vermelha.svg') no-repeat center center;
+    margin-left: 2px;
+
+}
+
+.menu ul li a:hover{
+    color: #AFAFAF;
+}
+
+
 @media only screen and (max-width: 739px) {
+    .header .flex {
+
+        max-width: none;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .btn-menu {
+        float: right;
+    }
+
     .menu ul{
         display: none;
         flex-direction: column;
         position: absolute;
         right: 0;
         top: 90px;
-        background: #181F39;
+        background: #04060D;
+
         padding:  0 15px 0 15px;
     }
 
@@ -237,7 +266,7 @@ img {
 
 /* intro - Header  */
 .intro {
-    background-color: #181F39;
+    background-color: #04060D;
     background-image: url(../img/bg-intro.svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -250,45 +279,48 @@ img {
 }
 
 .intro-text h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
     color: #FFF;
-    font-size: 4.5em;
-    font-weight: normal;
+    font-size: 4em;
     max-width: 570px;
 }
 
 .intro-text p {
-    font-size: 1.5em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.125em;
     color: #FFF;
     margin-bottom: 30px;
+    max-width: 470px;
+    line-height: 1.5;
 }
 
 .intro-text a {
+    font-family: 'Nunito', sans-serif;
     display: inline-block;
-    background: #EE4444;
-    color: #FFF;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    background: linear-gradient(#CC2222, #AA1111);
+    color: #D9E0E6;
     border-radius: 5px;
-    max-width: 176px;
+    max-width: 207px;
     font-size: 1.125em;
-    font-weight: bold;
     padding: 15px;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
 .intro-text a:hover {
-    background: #AA1111;
+    background: linear-gradient(#CC2222, #5A0606);
 }
-
 
 .intro-text a::after {
     content: '';
     display: inline-block;
+    width: 15px;
+    height: 11px;
+    background: url('../img/seta.svg') no-repeat center center;
     margin-left: 10px;
-    width: 13px;
-    height: 13px;
-    background: url('../img/seta.svg');
 }
+
+
 
 @media only screen and (max-width: 739px) {
     .intro-text {
@@ -311,43 +343,47 @@ img {
 }
 
 .sobre h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
     font-size: 2.25em;
-    font-weight: normal;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .sobre p {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     line-height: 1.5;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 
 .sobre a {
+    font-family: 'Nunito', sans-serif;
     display: inline-block;
-    background: #EE4444;
-    color: #FFF;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    background: linear-gradient(#CC2222, #AA1111);
+    color: #D9E0E6;
     border-radius: 5px;
+    max-width: 207px;
     font-size: 1.125em;
-    font-weight: bold;
     padding: 15px;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
+
+
 .sobre a:hover {
-    background: #AA1111;
+    background: linear-gradient(#CC2222, #5A0606);
 }
 
 
+
 .sobre a::after {
-    content: '';
-    display: inline-block;
-    margin-left: 10px;
-    width: 20px;
-    height: 20px;
-    background: url('../img/download.svg') no-repeat center center;
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 11px;
+  background: url('../img/seta.svg') no-repeat center center;
+  margin-left: 10px; 
 }
 
 .sobre {
@@ -361,9 +397,10 @@ img {
 }
 
 .portfolio h2 {
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
     font-size: 2.25em;
-    font-weight: normal;
+    text-align: center;
     margin-bottom: 60px;
 }
 
@@ -375,18 +412,20 @@ img {
 /* Habilidades */
 .habilidades-text {
     padding: 60px 0 210px 0;
-    background: #223399;
+    background: #0D1326;
     color: #FFF;   
     text-align: center; 
 }
 
 .habilidades-text h2{
-   font-size: 2.25em;
-    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 2.25em;
     margin-bottom: 30px;
 } 
 
 .habilidades-text p {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     max-width: 570px;
     margin: 0 auto;
@@ -394,7 +433,6 @@ img {
 }
 
 .habilidades .cards {
-    
     position: relative;
     top: -120px;
     justify-content: center;
@@ -418,18 +456,21 @@ img {
 }
 
 .habilidades .card h3 {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.5em;
     font-weight: normal;
     margin: 30px 0;;
 }
 
 .habilidades .card p {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     line-height: 1.5;
     margin-bottom: 20px;
 }
 
 .habilidades .card h4 {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     color: #EE4444;
     font-weight: normal;
@@ -439,6 +480,7 @@ img {
 }
 
 .habilidades .card li {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     line-height: 1.6;
     
@@ -459,6 +501,7 @@ img {
 }
 
 .quote p {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     line-height: 1.5;
     color: #FFF;
@@ -469,6 +512,7 @@ img {
 }
 
 .quote cite {
+    font-family: 'Nunito', sans-serif;
     color: #FFF;
     font-size: 1.125em;
     font-style: italic;
@@ -481,12 +525,14 @@ img {
 }
 
 .contato h2 {
+    font-family: 'Roboto', sans-serif;    
+    font-weight: 900;
     text-align: center;
-    font-size: 2.25em;
-    font-weight: normal;
+    font-size: 2.25em;  
 }
 
 .contato p {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     text-align: center;
     color: #7C8192;
@@ -501,13 +547,14 @@ img {
 }
 
 .form label {
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     margin-bottom: 5px;
 }
 
 .form input, .form textarea {
     
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1.125em;
     color: #181F39;
     max-width: 470px;
@@ -532,29 +579,30 @@ img {
 .form button {
     border: none;
     align-self: flex-start;
-    background: #EE4444;
-    color: #FFF;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-family: 'Nunito', sans-serif;
+    display: inline-block;
+    background: linear-gradient(#CC2222, #AA1111);
+    color: #D9E0E6;
     border-radius: 5px;
+    max-width: 207px;
     font-size: 1.125em;
-    font-weight: bold;
     padding: 15px;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 
 .form button:hover {
-    background: #AA1111;
+    background: linear-gradient(#CC2222, #5A0606);
 }
 
 
 .form button::after {
     content: '';
     display: inline-block;
+    width: 15px;
+    height: 11px;
+    background: url('../img/seta.svg') no-repeat center center;
     margin-left: 10px;
-    width: 13px;
-    height: 13px;
-    background: url('../img/seta2.svg');
 }
 
 .formphp label.nao-aparece, .formphp input.nao-aparece {
@@ -599,13 +647,18 @@ img {
 }
 
 .dados p {
+    font-family: 'Nunito', sans-serif;
     text-align: left;
+    padding-left: 0;
     padding-bottom: 10px;
     border-bottom: 1px solid #C4C4C4;
     color: #181F39;
+
 }
 
 .dados h3 {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 900;   
     padding-top: 10px;
     border-top: 1px solid #C4C4C4;
     margin-bottom: 5px;
@@ -629,7 +682,7 @@ img {
 /* footer */
 .footer {
     color: #fff;
-    background:  #181F39;
+    background:  #04060D;
     padding: 30px 0;
     font-size: 0.875em;
 }
